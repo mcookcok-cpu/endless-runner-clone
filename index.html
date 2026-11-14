@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+<meta name="theme-color" content="#120a2e" />
+<title>REL RUSH</title>
+<style>
+  :root { --bg:#120a2e; --teal:#19e3c4; --pink:#ff3c8e; --amber:#ffb020; --ink:#f4f1ff; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin:0; height:100%; overflow:hidden; background:var(--bg); color:var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; touch-action:none; user-select:none; -webkit-user-select:none; }
+  #game { position:fixed; inset:0; width:100%; height:100%; display:block; }
+  .layer { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; padding:max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom)); }
+  .hidden { display:none !important; }
+  .panel { background:rgba(18,10,46,.78); border:1px solid rgba(255,255,255,.14); border-radius:20px; padding:26px 28px; text-align:center; max-width:360px; width:100%; backdrop-filter:blur(8px); }
+  h1 { margin:0 0 4px; font-size:44px; letter-spacing:4px; font-weight:900; background:linear-gradient(90deg,var(--teal),var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  h2 { margin:0 0 10px; font-size:28px; }
+  p { margin:6px 0; opacity:.85; font-size:14px; line-height:1.5; }
+  .btn { margin-top:14px; width:100%; padding:14px 18px; font-size:18px; font-weight:800; letter-spacing:2px; color:#0b0620; background:linear-gradient(90deg,var(--teal),#7af0ff); border:0; border-radius:14px; cursor:pointer; }
+  .btn:active { transform:scale(.98); }
+  .stat { display:flex; justify-content:space-between; margin:8px 0; font-size:16px; }
+  .stat b { color:var(--amber); font-variant-numeric:tabular-nums; }
+  #hud { position:fixed; left:0; right:0; top:0; padding:max(12px, env(safe-area-inset-top)) 16px 0; display:flex; justify-content:space-between; pointer-events:none; font-weight:800; text-shadow:0 2px 8px rgba(0,0,0,.6); }
+  #hud .big { font-size:30px; font-variant-numeric:tabular-nums; }
+  #hud .small { font-size:13px; opacity:.8; font-weight:600; }
+  #coins { color:var(--amber); text-align:right; }
+  #mute { position:fixed; right:12px; bottom:max(12px, env(safe-area-inset-bottom)); width:44px; height:44px; border-radius:50%; border:1px solid rgba(255,255,255,.25); background:rgba(18,10,46,.6); color:#fff; font-size:20px; cursor:pointer; z-index:5; }
+  #flash { position:fixed; inset:0; background:#ff2a55; opacity:0; pointer-events:none; transition:opacity .35s; }
+  #flash.on { opacity:.55; transition:none; }
+  kbd { background:rgba(255,255,255,.14); border-radius:6px; padding:1px 7px; font-size:12px; }
+</style>
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="flash"></div>
+
+<div id="hud" class="hidden">
+  <div><div class="small">SKOR</div><div class="big" id="score">0</div><div class="small">REKOR <span id="best">0</span></div></div>
+  <div id="coins"><div class="small">KOIN</div><div class="big" id="runCoins">0</div></div>
+</div>
+
+<div id="menu" class="layer">
+  <div class="panel">
+    <h1>REL RUSH</h1>
+    <p>Lari di atas rel kota neon. Hindari kereta, lompati palang, guling di bawah rintangan.</p>
+    <div class="stat"><span>Rekor</span><b id="menuBest">0</b></div>
+    <div class="stat"><span>Total koin</span><b id="menuCoins">0</b></div>
+    <button class="btn" id="playBtn">MAIN</button>
+    <p style="margin-top:14px"><kbd>←</kbd> <kbd>→</kbd> pindah &nbsp; <kbd>↑</kbd> lompat &nbsp; <kbd>↓</kbd> guling<br/>Ponsel: geser ke arah yang sama</p>
+  </div>
+</div>
+
+<div id="over" class="layer hidden">
+  <div class="panel">
+    <h2>Tabrakan!</h2>
+    <div class="stat"><span>Skor</span><b id="overScore">0</b></div>
+    <div class="stat"><span>Koin lari ini</span><b id="overCoins">0</b></div>
+    <div class="stat"><span>Rekor</span><b id="overBest">0</b></div>
+    <p id="newBest" class="hidden" style="color:var(--teal);font-weight:800">Rekor baru!</p>
+    <button class="btn" id="againBtn">MAIN LAGI</button>
+    <p>Tekan <kbd>Spasi</kbd> / <kbd>Enter</kbd></p>
+  </div>
+</div>
+
+<div id="pause" class="layer hidden">
+  <div class="panel">
+    <h2>Dijeda</h2>
+    <button class="btn" id="resumeBtn">LANJUT</button>
+  </div>
+</div>
+
+<button id="mute" aria-label="Suara">🔊</button>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+feature,area,priority,original,clone,notes
+Lari otomatis maju tanpa akhir,gameplay,must,yes,no,
+Pindah jalur kiri/kanan,gameplay,must,yes,no,panah / geser
+Lompat,gameplay,must,yes,no,panah atas / geser atas
+Guling,gameplay,must,yes,no,panah bawah / geser bawah
+Rintangan (kereta dan penghalang) dengan kolisi,gameplay,must,yes,no,jenis rintangan: guess; rancang sendiri
+Kecepatan naik seiring waktu,gameplay,must,yes,no,page: melonjak sekitar 30 detik
+Generator trek prosedural yang adil,gameplay,must,yes,no,bagian tersulit
+Koin di sepanjang jalur,economy,must,yes,no,
+Skor dan pengganda skor,scoring,must,yes,no,
+Layar game over + restart instan,flow,must,yes,no,
+Skor tertinggi lokal,scoring,must,yes,no,"disimpan di perangkat; leaderboard global = skip"
+Kontrol keyboard dan sentuh,input,must,yes,no,
+Hoverboard (absorb satu tabrakan),items,must,yes,no,
+Power-up Jetpack,items,should,yes,no,nama/visual sendiri
+Power-up Super Sneakers,items,should,yes,no,
+Power-up Coin Magnet,items,should,yes,no,
+Power-up pengganda skor 2x,items,should,yes,no,
+Upgrade level power-up di toko,shop,should,yes,no,
+Booster Headstart,items,could,yes,no,
+Booster Score Booster,items,could,yes,no,
+Toko (hoverboard booster upgrade),shop,should,yes,no,
+Beberapa karakter dibuka dengan koin,progression,should,yes,no,karakter orisinal
+Beberapa hoverboard dengan kekuatan spesial,progression,could,yes,no,"6 jenis kekuatan; buat daftar sendiri"
+Kunci sebagai mata uang kedua,economy,could,yes,no,
+Mystery Box dengan tabel hadiah,economy,could,yes,no,
+Misi dengan hadiah pengganda permanen,progression,could,yes,no,
+Award bertingkat (4 tingkat),progression,could,yes,no,
+Word Hunt harian dengan streak,retention,could,yes,no,
+Dunia/tema yang berganti berkala,content,could,yes,no,tema orisinal
+Efek suara dan musik,audio,should,yes,no,aset orisinal/berlisensi bebas
+Penyimpanan progres (localStorage),persistence,must,yes,no,
+Leaderboard global,social,could,yes,skip,butuh server dan basis pemain
+Iklan dan SDK Poki,monetization,could,yes,skip,milik platform
+Karakter, nama, logo, musik, dan dunia SYBO,content,could,yes,skip,milik SYBO; jangan disalin
+Build native iOS/Android,platform,could,yes,skip,di luar scope web

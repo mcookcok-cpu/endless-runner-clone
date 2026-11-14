@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+<meta name="theme-color" content="#120a2e" />
+<title>REL RUSH</title>
+<style>:root{--bg:#120a2e;--teal:#19e3c4;--pink:#ff3c8e;--amber:#ffb020;--ink:#f4f1ff}*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{background:var(--bg);height:100%;color:var(--ink);touch-action:none;-webkit-user-select:none;user-select:none;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;overflow:hidden}#game{width:100%;height:100%;display:block;position:fixed;inset:0}.layer{padding:max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));justify-content:center;align-items:center;display:flex;position:fixed;inset:0}.hidden{display:none!important}.panel{text-align:center;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);background:#120a2ec7;border:1px solid #ffffff24;border-radius:20px;width:100%;max-width:360px;padding:26px 28px}h1{letter-spacing:4px;background:linear-gradient(90deg,var(--teal),var(--pink));color:#0000;-webkit-background-clip:text;background-clip:text;margin:0 0 4px;font-size:44px;font-weight:900}h2{margin:0 0 10px;font-size:28px}p{opacity:.85;margin:6px 0;font-size:14px;line-height:1.5}.btn{letter-spacing:2px;color:#0b0620;background:linear-gradient(90deg,var(--teal),#7af0ff);cursor:pointer;border:0;border-radius:14px;width:100%;margin-top:14px;padding:14px 18px;font-size:18px;font-weight:800}.btn:active{transform:scale(.98)}.stat{justify-content:space-between;margin:8px 0;font-size:16px;display:flex}.stat b{color:var(--amber);font-variant-numeric:tabular-nums}#hud{padding:max(12px, env(safe-area-inset-top)) 16px 0;pointer-events:none;text-shadow:0 2px 8px #0009;justify-content:space-between;font-weight:800;display:flex;position:fixed;top:0;left:0;right:0}#hud .big{font-variant-numeric:tabular-nums;font-size:30px}#hud .small{opacity:.8;font-size:13px;font-weight:600}#coins{color:var(--amber);text-align:right}#mute{right:12px;bottom:max(12px, env(safe-area-inset-bottom));color:#fff;cursor:pointer;z-index:5;background:#120a2e99;border:1px solid #ffffff40;border-radius:50%;width:44px;height:44px;font-size:20px;position:fixed}#flash{opacity:0;pointer-events:none;background:#ff2a55;transition:opacity .35s;position:fixed;inset:0}#flash.on{opacity:.55;transition:none}kbd{background:#ffffff24;border-radius:6px;padding:1px 7px;font-size:12px}</style>
+  <script type="module" crossorigin src="/assets/index-CGFnzm_r.js"></script>
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="flash"></div>
+
+<div id="hud" class="hidden">
+  <div><div class="small">SKOR</div><div class="big" id="score">0</div><div class="small">REKOR <span id="best">0</span></div></div>
+  <div id="coins"><div class="small">KOIN</div><div class="big" id="runCoins">0</div></div>
+</div>
+
+<div id="menu" class="layer">
+  <div class="panel">
+    <h1>REL RUSH</h1>
+    <p>Lari di atas rel kota neon. Hindari kereta, lompati palang, guling di bawah rintangan.</p>
+    <div class="stat"><span>Rekor</span><b id="menuBest">0</b></div>
+    <div class="stat"><span>Total koin</span><b id="menuCoins">0</b></div>
+    <button class="btn" id="playBtn">MAIN</button>
+    <p style="margin-top:14px"><kbd>←</kbd> <kbd>→</kbd> pindah &nbsp; <kbd>↑</kbd> lompat &nbsp; <kbd>↓</kbd> guling<br/>Ponsel: geser ke arah yang sama</p>
+  </div>
+</div>
+
+<div id="over" class="layer hidden">
+  <div class="panel">
+    <h2>Tabrakan!</h2>
+    <div class="stat"><span>Skor</span><b id="overScore">0</b></div>
+    <div class="stat"><span>Koin lari ini</span><b id="overCoins">0</b></div>
+    <div class="stat"><span>Rekor</span><b id="overBest">0</b></div>
+    <p id="newBest" class="hidden" style="color:var(--teal);font-weight:800">Rekor baru!</p>
+    <button class="btn" id="againBtn">MAIN LAGI</button>
+    <p>Tekan <kbd>Spasi</kbd> / <kbd>Enter</kbd></p>
+  </div>
+</div>
+
+<div id="pause" class="layer hidden">
+  <div class="panel">
+    <h2>Dijeda</h2>
+    <button class="btn" id="resumeBtn">LANJUT</button>
+  </div>
+</div>
+
+<button id="mute" aria-label="Suara">🔊</button>
+</body>
+</html>
